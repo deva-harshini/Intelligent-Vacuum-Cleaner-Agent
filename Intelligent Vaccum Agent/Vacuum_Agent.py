@@ -3,10 +3,7 @@ import time
 import threading
 import random
 
-# ============================================================
 #                 VACUUM ENVIRONMENT CLASS
-# ============================================================
-
 class VacuumEnvironment:
     def __init__(self, size=3):
         self.size = size
@@ -36,10 +33,7 @@ class VacuumEnvironment:
                    for c in range(self.size))
 
 
-# ============================================================
 #                 GUI + AGENT CONTROLLER
-# ============================================================
-
 class VacuumAgentGUI:
     def __init__(self, master):
         self.master = master
@@ -63,7 +57,6 @@ class VacuumAgentGUI:
         self.create_widgets()
         self.draw_grid(initial=True)
 
-    # --------------------------------------------------------
     def create_widgets(self):
 
         # Title Label (OUTSIDE GRID)
@@ -108,10 +101,7 @@ class VacuumAgentGUI:
             width=10, command=self.reset_environment)
         self.reset_btn.grid(row=0, column=2, padx=10)
 
-    # --------------------------------------------------------
     #                GRID DRAWING FUNCTION
-    # --------------------------------------------------------
-
     def draw_grid(self, initial=False, final=False):
         self.canvas.delete("all")
 
@@ -151,9 +141,7 @@ class VacuumAgentGUI:
 
         self.master.update()
 
-    # --------------------------------------------------------
     #                 BUTTON ACTION HANDLERS
-    # --------------------------------------------------------
 
     def start_simulation(self):
         if not self.running:
@@ -171,10 +159,7 @@ class VacuumAgentGUI:
         self.agent_pos = (0, 0)
         self.draw_grid(initial=True)
 
-    # --------------------------------------------------------
     #                 AGENT BEHAVIOR FUNCTIONS
-    # --------------------------------------------------------
-
     def move_agent(self, new_pos):
         if not self.running:
             return
@@ -190,9 +175,7 @@ class VacuumAgentGUI:
             self.draw_grid()
             time.sleep(self.delay)
 
-    # --------------------------------------------------------
     #                 MAIN INTELLIGENT CONTROL LOGIC
-    # --------------------------------------------------------
 
     def run_agent(self):
         self.draw_grid(initial=True)
@@ -212,11 +195,10 @@ class VacuumAgentGUI:
 
         self.draw_grid(final=True)
 
-# ============================================================
-#                        RUN PROGRAM
-# ============================================================
 
+#                        RUN PROGRAM
 if __name__ == "__main__":
     root = tk.Tk()
     app = VacuumAgentGUI(root)
     root.mainloop()
+
